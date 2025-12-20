@@ -404,10 +404,10 @@ class ScalingEfficientSoftCoTFromSmallModel(SoftCoTAbstractClass):
             loss = 0.
 
             if self.training and self.add_cl_loss:
-                student_hidden_states = torch.cat([ie.unsqueeze(1) for ie in inputs_embeds_list], dim=1)
+                student_hidden_states_all = torch.cat([ie.unsqueeze(1) for ie in inputs_embeds_list], dim=1)
 
                 for b in range(batch_size):
-                    student_hidden_states = student_hidden_states[b][:, thought_index[b, 0]: thought_index[b, 1]]
+                    student_hidden_states = student_hidden_states_all[b][:, thought_index[b, 0]: thought_index[b, 1]]
                     teacher_hidden_states = self.dropout(student_hidden_states)
 
                     num_scaling_times = len(inputs_embeds_list)
