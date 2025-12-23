@@ -21,4 +21,7 @@ bash run_batch_softcot.sh \
     --print_input \
     --print_response \
     --log_dir /home/xdrshjr/exps/SoftCoT/logs/qwen251220 \
-    --run_name qwen251220
+    --run_name qwen251220 \
+    --checkpoint_dir ./checkpoints \
+    --max_retries 10 \
+    --retry_delay 5
