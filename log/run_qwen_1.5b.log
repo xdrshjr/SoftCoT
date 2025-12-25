@@ -1,0 +1,78 @@
+/home/xdrshjr/anaconda3/bin/conda run -n softcot --no-capture-output python /home/xdrshjr/exps/SoftCoT/evaluate_softcot.py --base_model_id Qwen/Qwen2.5-1.5B-Instruct --assistant_model_id Qwen/Qwen2.5-0.5B-Instruct --params_file_name /home/xdrshjr/exps/SoftCoT/ckpt/basic-20251220-gsm8k-1.0-32-Qwen2.5-1.5B-Instruct-Qwen2.5-0.5B-Instruct/projection.bin --num_thought_tokens 4 --num_return_sequences 1 --task_name gsm8k --print_input --print_response --checkpoint_dir ./checkpoints
+/home/xdrshjr/.conda/envs/softcot/lib/python3.10/site-packages/fastNLP/core/utils.py:27: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import parse_version
+================================================================================
+SoftCoT Evaluation Script with Checkpoint/Resume Support
+================================================================================
+Command-line Arguments:
+  assistant_model_ckpt: None
+  assistant_model_id: Qwen/Qwen2.5-0.5B-Instruct
+  base_model_ckpt: None
+  base_model_id: Qwen/Qwen2.5-1.5B-Instruct
+  checkpoint_dir: ./checkpoints
+  disable_checkpoint: False
+  num_return_sequences: 1
+  num_thought_tokens: 4
+  params_file_name: /home/xdrshjr/exps/SoftCoT/ckpt/basic-20251220-gsm8k-1.0-32-Qwen2.5-1.5B-Instruct-Qwen2.5-0.5B-Instruct/projection.bin
+  print_input: True
+  print_response: True
+  seed: 42
+  task_name: gsm8k
+  test_k: 0
+  tune_assistant_model: False
+  tune_base_model: False
+================================================================================
+Checkpoint manager initialized for run: gsm8k_seed42_ntt4_nrs1_Qwen2.5-1.5B-Instruct_Qwen2.5-0.5B-Instruct
+Checkpoint file: checkpoints/gsm8k_seed42_ntt4_nrs1_Qwen2.5-1.5B-Instruct_Qwen2.5-0.5B-Instruct.checkpoint.json
+Results file: checkpoints/gsm8k_seed42_ntt4_nrs1_Qwen2.5-1.5B-Instruct_Qwen2.5-0.5B-Instruct.results.jsonl
+Checkpoint management enabled for run: gsm8k_seed42_ntt4_nrs1_Qwen2.5-1.5B-Instruct_Qwen2.5-0.5B-Instruct
+
+Loading tokenizers...
+✓ Base tokenizer loaded: Qwen/Qwen2.5-1.5B-Instruct
+✓ Assistant tokenizer loaded: Qwen/Qwen2.5-0.5B-Instruct
+
+Determining model backbone types...
+Base model backbone: qwen
+Base model special tokens: ['<|endoftext|>', '<|box_start|>', '<|box_end|>']
+Assistant model backbone: qwen
+Assistant model special tokens: ['<|endoftext|>', '<|box_start|>', '<|box_end|>']
+
+Initializing SoftCoT model...
+Model class: EfficientSoftCoTFromSmallModel
+Number of thought tokens: 4
+Tune base model: False
+Tune assistant model: False
+`torch_dtype` is deprecated! Use `dtype` instead!
+Load weights from file `/home/xdrshjr/exps/SoftCoT/ckpt/basic-20251220-gsm8k-1.0-32-Qwen2.5-1.5B-Instruct-Qwen2.5-0.5B-Instruct/projection.bin` for projection module.
+Successfully Init Model `EfficientSoftCoTFromSmallModel`
+
+Setting models to evaluation mode...
+✓ All models set to eval mode
+
+Loading dataset for task: gsm8k
+✓ Dataset loaded successfully
+  Total samples in test set: 1319
+
+Configuring generation parameters...
+  Generation config: top_p=1.0, temperature=1.0
+  Pad token ID: 151643
+
+================================================================================
+Starting Evaluation
+================================================================================
+Loaded checkpoint: last_completed_idx=1318, correct_count=193/1319
+Evaluation already completed: 1319/1319 samples
+Evaluation already completed! Loading statistics...
+Loaded checkpoint: last_completed_idx=1318, correct_count=193/1319
+Loaded checkpoint: last_completed_idx=1318, correct_count=193/1319
+Loaded checkpoint: last_completed_idx=1318, correct_count=193/1319
+================================================================================
+Evaluation completed for run: gsm8k_seed42_ntt4_nrs1_Qwen2.5-1.5B-Instruct_Qwen2.5-0.5B-Instruct
+Total samples processed: 1319/1319
+Correct predictions: 193
+Final accuracy: 14.63%
+Total elapsed time: 2692.05 seconds
+Average time per sample: 2.04 seconds
+================================================================================
+
+Process finished with exit code 0
